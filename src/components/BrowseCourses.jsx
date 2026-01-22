@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { courseAPI } from "../services/api";
 import { ArrowLeft, BookOpen, Users, Eye } from "lucide-react";
 
-export default function BrowseCourses({ onBackToHome, onViewDetails, onLoginClick, onRegisterClick }) {
+export default function BrowseCourses({
+  onBackToHome,
+  onViewDetails,
+  onLoginClick,
+  onRegisterClick,
+}) {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -126,7 +131,8 @@ export default function BrowseCourses({ onBackToHome, onViewDetails, onLoginClic
                     <div className="flex items-center gap-2 text-gray-700 mb-6">
                       <Users className="w-5 h-5 text-purple-400" />
                       <span className="font-medium">
-                        {course.enrolledCount || 0} / {course.capacity} students enrolled
+                        {course.enrolledCount || 0} / {course.capacity} students
+                        enrolled
                       </span>
                     </div>
 
@@ -137,7 +143,8 @@ export default function BrowseCourses({ onBackToHome, onViewDetails, onLoginClic
                           className="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full transition-all"
                           style={{
                             width: `${
-                              ((course.enrolledCount || 0) / course.capacity) * 100
+                              ((course.enrolledCount || 0) / course.capacity) *
+                              100
                             }%`,
                           }}
                         ></div>

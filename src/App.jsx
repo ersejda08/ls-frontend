@@ -87,12 +87,7 @@ function App() {
 
   // After authentication, show dashboard based on role
   if (user?.role === "TEACHER") {
-    return (
-      <TeacherDashboard
-        user={user}
-        onLogout={handleLogout}
-      />
-    );
+    return <TeacherDashboard user={user} onLogout={handleLogout} />;
   }
 
   return (

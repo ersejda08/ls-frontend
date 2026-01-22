@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { authAPI } from "../services/api";
 import { Mail, Lock, LogIn, ArrowLeft } from "lucide-react";
 
-export default function Login({ onLoginSuccess, onRegisterClick, onBackToHome }) {
+export default function Login({
+  onLoginSuccess,
+  onRegisterClick,
+  onBackToHome,
+}) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",

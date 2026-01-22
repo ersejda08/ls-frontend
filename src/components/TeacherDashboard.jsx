@@ -78,7 +78,7 @@ export default function TeacherDashboard({ user, onLogout }) {
       console.error("Error saving course:", err);
       setError(
         err.response?.data?.message ||
-          "Failed to save course. Please try again."
+          "Failed to save course. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -106,7 +106,7 @@ export default function TeacherDashboard({ user, onLogout }) {
         console.error("Error deleting course:", err);
         setError(
           err.response?.data?.message ||
-            "Failed to delete course. Please try again."
+            "Failed to delete course. Please try again.",
         );
       } finally {
         setLoading(false);
@@ -132,7 +132,10 @@ export default function TeacherDashboard({ user, onLogout }) {
                 Teacher Dashboard
               </h1>
               <p className="text-gray-600">
-                Welcome, <span className="font-semibold">{user?.fullName || user?.username}</span>
+                Welcome,{" "}
+                <span className="font-semibold">
+                  {user?.fullName || user?.username}
+                </span>
               </p>
             </div>
             <button
@@ -229,7 +232,11 @@ export default function TeacherDashboard({ user, onLogout }) {
                     disabled={loading}
                     className="flex-1 bg-gradient-to-r from-purple-300 to-pink-300 text-white py-2 rounded-lg hover:from-purple-400 hover:to-pink-400 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {loading ? "Saving..." : editingId ? "Update Course" : "Create Course"}
+                    {loading
+                      ? "Saving..."
+                      : editingId
+                        ? "Update Course"
+                        : "Create Course"}
                   </button>
                   <button
                     type="button"
@@ -252,7 +259,9 @@ export default function TeacherDashboard({ user, onLogout }) {
         ) : courses.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-md p-12 text-center border border-purple-100">
             <BookOpen className="w-16 h-16 text-purple-300 mx-auto mb-4 opacity-50" />
-            <p className="text-gray-600 text-lg">No courses yet. Create your first course!</p>
+            <p className="text-gray-600 text-lg">
+              No courses yet. Create your first course!
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
