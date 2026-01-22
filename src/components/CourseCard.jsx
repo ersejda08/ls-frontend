@@ -6,7 +6,7 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
     if (onViewCourse) {
       onViewCourse(course);
     } else {
-      alert(`Opening course: ${course.name}`);
+      alert(`Opening course: ${course.courseName}`);
     }
   };
 
@@ -14,7 +14,7 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
     if (onEnroll) {
       onEnroll(course);
     } else {
-      alert(`Enrolled in: ${course.name}`);
+      alert(`Enrolled in: ${course.courseName}`);
     }
   };
 
@@ -23,7 +23,7 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 h-32"></div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{course.name}</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{course.courseName}</h3>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">
           {course.description}
         </p>
@@ -35,7 +35,7 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
           </div>
           <div className="flex items-center gap-1">
             <Users className="w-4 h-4" />
-            <span>{course.enrollments?.length || 0} students</span>
+            <span>{course.enrolledCount ?? 0} students</span>
           </div>
         </div>
 

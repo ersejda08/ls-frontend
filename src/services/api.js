@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = "http://localhost:8081/api";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -75,7 +75,6 @@ export const courseAPI = {
   create: (data) => apiClient.post("/courses", data),
   update: (id, data) => apiClient.put(`/courses/${id}`, data),
   delete: (id) => apiClient.delete(`/courses/${id}`),
-  getByCourseId: (courseId) => apiClient.get(`/courses/${courseId}/lessons`),
 };
 
 // Lesson API
@@ -109,12 +108,6 @@ export const quizAnswerAPI = {
 
 // Enrollment API
 export const enrollmentAPI = {
-  getAll: () => apiClient.get("/enrollments"),
-  getById: (id) => apiClient.get(`/enrollments/${id}`),
-  create: (data) => apiClient.post("/enrollments", data),
-  delete: (id) => apiClient.delete(`/enrollments/${id}`),
-  getByUserId: (userId) => apiClient.get(`/enrollments/user/${userId}`),
-  getByCourseId: (courseId) => apiClient.get(`/enrollments/course/${courseId}`),
   enroll: (courseId) => apiClient.post(`/courses/${courseId}/enroll`),
   unenroll: (courseId) => apiClient.delete(`/courses/${courseId}/unenroll`),
   myEnrollments: () => apiClient.get("/my/enrollments"),

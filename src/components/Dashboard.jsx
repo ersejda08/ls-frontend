@@ -49,7 +49,7 @@ export default function Dashboard() {
   const handleEnroll = async (course) => {
     try {
       await enrollmentAPI.enroll(course.id);
-      alert(`Successfully enrolled in ${course.name}!`);
+      alert(`Successfully enrolled in ${course.courseName}!`);
     } catch (err) {
       console.error("Error enrolling:", err);
       alert(`Failed to enroll: ${err.response?.data?.message || err.message}`);
