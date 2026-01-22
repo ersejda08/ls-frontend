@@ -17,7 +17,7 @@ apiClient.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    
+
     console.log(
       `[API Request] ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`,
     );
@@ -41,7 +41,7 @@ apiClient.interceptors.response.use(
     console.error(`[API Error] Method: ${error.config?.method?.toUpperCase()}`);
     console.error(`[API Error] Response Data:`, error.response?.data);
     console.error(`[API Error] Full Error:`, error);
-    
+
     if (error.response?.status === 403) {
       console.error(
         "[403 Forbidden] Backend rejected request. This is a CORS or authentication issue.",

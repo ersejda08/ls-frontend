@@ -29,7 +29,7 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
 
     try {
       setLoading(true);
-      
+
       // Login via backend API
       const response = await authAPI.login({
         email: formData.email,
@@ -37,7 +37,7 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
       });
 
       const { accessToken, user } = response.data;
-      
+
       // Store token and user info
       localStorage.setItem("token", accessToken);
       localStorage.setItem("user", JSON.stringify(user));
@@ -51,19 +51,20 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
       console.error("Login error:", err);
       console.error("Error response:", err.response?.data);
       console.error("Error status:", err.response?.status);
-      
+
       let errorMessage = "Login failed. Please try again.";
-      
+
       if (err.response?.status === 401) {
         errorMessage = "Invalid email or password.";
       } else if (err.response?.status === 400) {
         errorMessage = err.response?.data?.message || "Invalid login data.";
       } else if (err.message === "Network Error") {
-        errorMessage = "Cannot connect to the backend. Make sure the server is running.";
+        errorMessage =
+          "Cannot connect to the backend. Make sure the server is running.";
       } else {
         errorMessage = err.response?.data?.message || errorMessage;
       }
-      
+
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -80,9 +81,7 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
         <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">
           Learn Smartly
         </h2>
-        <p className="text-gray-600 mb-6 text-center">
-          Login to your account
-        </p>
+        <p className="text-gray-600 mb-6 text-center">Login to your account</p>
 
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">

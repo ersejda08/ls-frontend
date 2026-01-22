@@ -50,7 +50,7 @@ export default function Register({ onSuccess, onBackToLogin }) {
 
     try {
       setLoading(true);
-      
+
       // Register via backend API
       const response = await authAPI.register({
         username: formData.username,
@@ -68,11 +68,11 @@ export default function Register({ onSuccess, onBackToLogin }) {
 
       setSuccess(true);
       alert("Registration successful! Please login with your credentials.");
-      
+
       if (onSuccess) {
         onSuccess(user);
       }
-      
+
       // Reset form
       setFormData({
         username: "",
@@ -95,24 +95,29 @@ export default function Register({ onSuccess, onBackToLogin }) {
       console.error("Error response:", err.response);
       console.error("Error status:", err.response?.status);
       console.error("Error data:", err.response?.data);
-      
+
       // Provide more specific error messages
       let errorMessage = "Registration failed. Please try again.";
-      
+
       if (err.response?.status === 400) {
-        errorMessage = err.response?.data?.message || "Invalid registration data. Please check your input.";
+        errorMessage =
+          err.response?.data?.message ||
+          "Invalid registration data. Please check your input.";
       } else if (err.response?.status === 409) {
         errorMessage = "Email already exists. Please use a different email.";
       } else if (err.response?.status === 403) {
-        errorMessage = "Registration is not allowed. Backend access issue (CORS).";
+        errorMessage =
+          "Registration is not allowed. Backend access issue (CORS).";
       } else if (err.response?.status === 500) {
         errorMessage = "Server error. Please try again later.";
       } else if (err.message === "Network Error") {
-        errorMessage = "Cannot connect to the backend. Make sure the server is running.";
+        errorMessage =
+          "Cannot connect to the backend. Make sure the server is running.";
       } else {
-        errorMessage = err.response?.data?.message || err.message || errorMessage;
+        errorMessage =
+          err.response?.data?.message || err.message || errorMessage;
       }
-      
+
       setError(errorMessage);
     } finally {
       setLoading(false);

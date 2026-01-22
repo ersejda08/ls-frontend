@@ -3,6 +3,7 @@
 ## ✅ Changes Completed
 
 ### 1. API Service (`src/services/api.js`)
+
 ```
 ✓ Added authAPI object
   - register()
@@ -20,6 +21,7 @@
 ```
 
 ### 2. Register Component (`src/components/Register.jsx`)
+
 ```
 ✓ New Fields:
   - username (required, was "name")
@@ -34,6 +36,7 @@
 ```
 
 ### 3. Login Component (`src/components/Login.jsx`)
+
 ```
 ✓ Uses authAPI.login()
 ✓ Extracts accessToken and user
@@ -42,6 +45,7 @@
 ```
 
 ### 4. Dashboard Component (`src/components/Dashboard.jsx`)
+
 ```
 ✓ Uses enrollmentAPI.enroll()
 ✓ Removes userId (backend gets from JWT)
@@ -60,11 +64,14 @@
 ## 📝 Key Implementation Details
 
 ### Password Requirements
+
 - **Registration**: Min 8 characters
 - **Login**: Any password
 
 ### Request Fields
+
 **Register:**
+
 - username (string, required)
 - email (string, required, valid email)
 - password (string, required, min 8)
@@ -73,11 +80,14 @@
 - role (UserRole enum: STUDENT, TEACHER, ADMIN - optional, defaults to STUDENT)
 
 **Login:**
+
 - email (string, required, valid email)
 - password (string, required)
 
 ### Response Format
+
 Both register and login return:
+
 ```json
 {
   "accessToken": "JWT_TOKEN_HERE",
@@ -108,14 +118,14 @@ Backend validates token with @PreAuthorize
 
 ## 📍 Endpoint Mapping
 
-| Purpose | Old Endpoint | New Endpoint | Method |
-|---------|--------------|--------------|--------|
-| Register | /api/users | /api/auth/register | POST |
-| Login | (mock) | /api/auth/login | POST |
-| Get Me | (none) | /api/auth/me | GET |
-| Enroll | /api/enrollments | /api/courses/{id}/enroll | POST |
-| Unenroll | /api/enrollments/{id} | /api/courses/{id}/unenroll | DELETE |
-| My Enrollments | /api/enrollments/user/{id} | /api/my/enrollments | GET |
+| Purpose        | Old Endpoint               | New Endpoint               | Method |
+| -------------- | -------------------------- | -------------------------- | ------ |
+| Register       | /api/users                 | /api/auth/register         | POST   |
+| Login          | (mock)                     | /api/auth/login            | POST   |
+| Get Me         | (none)                     | /api/auth/me               | GET    |
+| Enroll         | /api/enrollments           | /api/courses/{id}/enroll   | POST   |
+| Unenroll       | /api/enrollments/{id}      | /api/courses/{id}/unenroll | DELETE |
+| My Enrollments | /api/enrollments/user/{id} | /api/my/enrollments        | GET    |
 
 ## 🐛 Debugging Tips
 
@@ -127,11 +137,10 @@ Backend validates token with @PreAuthorize
 
 ## ⚠️ Common Issues & Solutions
 
-| Issue | Solution |
-|-------|----------|
-| "Cannot connect to backend" | Check backend is running on port 8080 |
-| Registration fails | Password must be 8+ chars, check console for details |
-| 401 Unauthorized | Token invalid or expired, try logging in again |
-| CORS error | Check backend CORS configuration |
-| "No static resource" | Backend not serving API properly |
-
+| Issue                       | Solution                                             |
+| --------------------------- | ---------------------------------------------------- |
+| "Cannot connect to backend" | Check backend is running on port 8080                |
+| Registration fails          | Password must be 8+ chars, check console for details |
+| 401 Unauthorized            | Token invalid or expired, try logging in again       |
+| CORS error                  | Check backend CORS configuration                     |
+| "No static resource"        | Backend not serving API properly                     |
