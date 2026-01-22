@@ -48,7 +48,7 @@ function App() {
     if (currentPage === "home") {
       return (
         <div>
-          <Homepage 
+          <Homepage
             onLoginClick={() => setCurrentPage("login")}
             onRegisterClick={() => setCurrentPage("register")}
           />
@@ -74,15 +74,13 @@ function App() {
   // After authentication, show dashboard or management based on role
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation 
-        currentPage={currentPage} 
+      <Navigation
+        currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         user={user}
         onLogout={handleLogout}
       />
-      <main>
-        {currentPage === "dashboard" && <Dashboard />}
-      </main>
+      <main>{currentPage === "dashboard" && <Dashboard />}</main>
     </div>
   );
 }

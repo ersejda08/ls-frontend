@@ -12,14 +12,16 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
             <h1 className="text-2xl font-bold text-white">LearnSmartly</h1>
           </div>
           <div className="flex gap-4 items-center">
-            <button 
+            <button
               onClick={onLoginClick}
-              className="border-2 border-white text-white px-6 py-2 rounded-lg font-medium hover:bg-white hover:text-orange-400 transition">
+              className="border-2 border-white text-white px-6 py-2 rounded-lg font-medium hover:bg-white hover:text-orange-400 transition"
+            >
               Login
             </button>
-            <button 
+            <button
               onClick={onRegisterClick}
-              className="bg-white text-orange-400 px-6 py-2 rounded-lg font-medium hover:bg-orange-50 transition">
+              className="bg-white text-orange-400 px-6 py-2 rounded-lg font-medium hover:bg-orange-50 transition"
+            >
               Register
             </button>
           </div>
@@ -29,20 +31,26 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto px-4 py-24 text-center">
         <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-          Empowering Learning <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">Beyond Classroom</span>
+          Empowering Learning{" "}
+          <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">
+            Beyond Classroom
+          </span>
         </h2>
         <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Connect students with experienced tutors. Learn new skills, prepare for exams, or master a subject—on your own schedule.
+          Connect students with experienced tutors. Learn new skills, prepare
+          for exams, or master a subject—on your own schedule.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button 
+          <button
             onClick={onLoginClick}
-            className="bg-gradient-to-r from-purple-300 to-pink-300 text-white px-8 py-4 rounded-lg font-bold text-lg hover:from-purple-400 hover:to-pink-400 transition flex items-center justify-center gap-2">
+            className="bg-gradient-to-r from-purple-300 to-pink-300 text-white px-8 py-4 rounded-lg font-bold text-lg hover:from-purple-400 hover:to-pink-400 transition flex items-center justify-center gap-2"
+          >
             Browse Courses <ArrowRight className="w-5 h-5" />
           </button>
-          <button 
+          <button
             onClick={onRegisterClick}
-            className="border-2 border-purple-400 text-purple-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-purple-50 transition">
+            className="border-2 border-purple-400 text-purple-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-purple-50 transition"
+          >
             Create a Course
           </button>
         </div>
@@ -53,7 +61,9 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
         <div className="grid md:grid-cols-2 gap-12">
           {/* For Students */}
           <div className="bg-white border border-purple-100 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">For Students</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              For Students
+            </h3>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <span className="text-purple-400 font-bold">✓</span>
@@ -65,7 +75,9 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
               </li>
               <li className="flex gap-3">
                 <span className="text-purple-400 font-bold">✓</span>
-                <span className="text-gray-700">Track your enrolled courses</span>
+                <span className="text-gray-700">
+                  Track your enrolled courses
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-purple-400 font-bold">✓</span>
@@ -76,7 +88,9 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
 
           {/* For Teachers */}
           <div className="bg-white border border-orange-100 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">For Teachers</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              For Teachers
+            </h3>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <span className="text-orange-400 font-bold">✓</span>
@@ -106,7 +120,9 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
             <BookOpen className="w-6 h-6 text-purple-400" />
             <span className="font-bold text-white">LearnSmartly</span>
           </div>
-          <p className="text-sm">&copy; 2026 LearnSmartly. All rights reserved.</p>
+          <p className="text-sm">
+            &copy; 2026 LearnSmartly. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
