@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
+import TeacherDashboard from "./components/TeacherDashboard";
+import BrowseCourses from "./components/BrowseCourses";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Homepage from "./components/Homepage";
@@ -51,27 +53,48 @@ function App() {
           <Homepage
             onLoginClick={() => setCurrentPage("login")}
             onRegisterClick={() => setCurrentPage("register")}
+            onBrowseClick={() => setCurrentPage("browse")}
           />
         </div>
+      );
+    } else if (currentPage === "browse") {
+      return (
+        <BrowseCourses
+          onBackToHome={() => setCurrentPage("home")}
+          onLoginClick={() => setCurrentPage("login")}
+          onRegisterClick={() => setCurrentPage("register")}
+          onViewDetails={() => setCurrentPage("login")}
+        />
       );
     } else if (currentPage === "login") {
       return (
         <Login
           onLoginSuccess={handleLoginSuccess}
           onRegisterClick={() => setCurrentPage("register")}
+          onBackToHome={() => setCurrentPage("home")}
         />
       );
     } else {
       return (
         <Register
           onSuccess={handleLoginSuccess}
+          onBackToHome={() => setCurrentPage("home")}
           onBackToLogin={() => setCurrentPage("login")}
         />
       );
     }
   }
 
-  // After authentication, show dashboard or management based on role
+  // After authentication, show dashboard based on role
+  if (user?.role === "TEACHER") {
+    return (
+      <TeacherDashboard
+        user={user}
+        onLogout={handleLogout}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation

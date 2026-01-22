@@ -72,9 +72,9 @@ export const userAPI = {
 export const courseAPI = {
   getAll: () => apiClient.get("/courses"),
   getById: (id) => apiClient.get(`/courses/${id}`),
-  create: (data) => apiClient.post("/courses", data),
-  update: (id, data) => apiClient.put(`/courses/${id}`, data),
-  delete: (id) => apiClient.delete(`/courses/${id}`),
+  createCourse: (data) => apiClient.post("/courses", data),
+  updateCourse: (id, data) => apiClient.put(`/courses/${id}`, data),
+  deleteCourse: (id) => apiClient.delete(`/courses/${id}`),
 };
 
 // Lesson API

@@ -1,7 +1,7 @@
 import React from "react";
 import { BookOpen, ArrowRight } from "lucide-react";
 
-export default function Homepage({ onLoginClick, onRegisterClick }) {
+export default function Homepage({ onLoginClick, onRegisterClick, onBrowseClick }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Navigation */}
@@ -42,7 +42,7 @@ export default function Homepage({ onLoginClick, onRegisterClick }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={onLoginClick}
+            onClick={onBrowseClick}
             className="bg-gradient-to-r from-purple-300 to-pink-300 text-white px-8 py-4 rounded-lg font-bold text-lg hover:from-purple-400 hover:to-pink-400 transition flex items-center justify-center gap-2"
           >
             Browse Courses <ArrowRight className="w-5 h-5" />
