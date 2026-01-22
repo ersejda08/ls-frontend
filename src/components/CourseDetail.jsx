@@ -41,7 +41,9 @@ export default function CourseDetail({ courseId }) {
             <div className="flex items-center gap-3 mb-6">
               <BookOpen className="w-8 h-8 text-indigo-600" />
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">{course.courseName}</h1>
+                <h1 className="text-3xl font-bold text-gray-900">
+                  {course.courseName}
+                </h1>
               </div>
             </div>
 
@@ -51,7 +53,9 @@ export default function CourseDetail({ courseId }) {
                   <Users className="w-5 h-5" />
                   <div>
                     <p className="text-sm text-indigo-700">Enrolled</p>
-                    <p className="text-2xl font-bold">{course.enrolledCount ?? 0}</p>
+                    <p className="text-2xl font-bold">
+                      {course.enrolledCount ?? 0}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -59,7 +63,9 @@ export default function CourseDetail({ courseId }) {
               <div className="bg-purple-50 p-4 rounded-lg">
                 <div className="text-purple-900">
                   <p className="text-sm text-purple-700">Capacity</p>
-                  <p className="text-2xl font-bold">{course.capacity ?? "Unlimited"}</p>
+                  <p className="text-2xl font-bold">
+                    {course.capacity ?? "Unlimited"}
+                  </p>
                 </div>
               </div>
 
@@ -72,13 +78,18 @@ export default function CourseDetail({ courseId }) {
             </div>
 
             <div className="prose max-w-none mb-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-3">About this Course</h2>
-              <p className="text-gray-700 leading-relaxed">{course.description}</p>
+              <h2 className="text-xl font-bold text-gray-900 mb-3">
+                About this Course
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                {course.description}
+              </p>
             </div>
 
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <p className="text-sm text-gray-600">
-                <strong>Note:</strong> Course materials and lessons are managed by your instructor.
+                <strong>Note:</strong> Course materials and lessons are managed
+                by your instructor.
               </p>
             </div>
           </div>

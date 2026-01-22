@@ -23,7 +23,9 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 h-32"></div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{course.courseName}</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">
+          {course.courseName}
+        </h3>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">
           {course.description}
         </p>

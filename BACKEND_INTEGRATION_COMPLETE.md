@@ -12,6 +12,7 @@
 ### 1. **API Service Layer** (`src/services/api.js`)
 
 #### Added Auth API
+
 ```javascript
 export const authAPI = {
   register: (data) => apiClient.post("/auth/register", data),
@@ -21,11 +22,13 @@ export const authAPI = {
 ```
 
 #### Updated Axios Interceptor
+
 - Added **JWT Bearer token** from localStorage to all requests
 - Enhanced error logging with status codes, URLs, and response data
 - Proper error handling for 401, 403, 500 status codes
 
 #### Cleaned Up API Methods
+
 - Removed non-existent lesson endpoints (`/api/lessons/course/{id}`)
 - Kept only working enrollment endpoints: `enroll`, `unenroll`, `myEnrollments`
 - Course API simplified (no lessons sub-route)
@@ -33,9 +36,10 @@ export const authAPI = {
 ### 2. **Authentication Components**
 
 #### Register Component (`src/components/Register.jsx`)
-- **Fields Updated**: 
+
+- **Fields Updated**:
   - `username` (new)
-  - `email` 
+  - `email`
   - `password`
   - `phoneNumber` (optional)
   - `address` (optional)
@@ -46,6 +50,7 @@ export const authAPI = {
 - **Removed**: Mock fallback registration
 
 #### Login Component (`src/components/Login.jsx`)
+
 - **API Call**: `authAPI.login({email, password})`
 - **Response Handling**: Extracts `accessToken` and `user` from backend
 - **Token Storage**: Stores token and user data in localStorage
@@ -54,21 +59,24 @@ export const authAPI = {
 ### 3. **Course Components**
 
 #### CourseCard Component (`src/components/CourseCard.jsx`)
+
 - **Field Mapping**:
   - `course.name` → `course.courseName`
   - `course.enrollments?.length` → `course.enrolledCount`
 - **Display**: Shows enrolled student count from backend
 
 #### CourseDetail Component (`src/components/CourseDetail.jsx`)
+
 - **Removed**: `lessonAPI.getByCourseId()` call (endpoint doesn't exist)
 - **Updated**: Now fetches `courseAPI.getById(courseId)` for course details
-- **Display**: 
+- **Display**:
   - Course name, description
   - Enrolled count and capacity
   - Course status
 - **Simplified**: No longer tries to load lessons
 
 #### Dashboard Component (`src/components/Dashboard.jsx`)
+
 - **Enrollment**: Updated to use `enrollmentAPI.enroll(course.id)`
 - **Field Mapping**: Uses `course.courseName` in success message
 
@@ -77,33 +85,37 @@ export const authAPI = {
 ## Backend API Endpoints Used
 
 ### Authentication
-| Method | Endpoint | Request | Response |
-|--------|----------|---------|----------|
-| POST | `/api/auth/register` | `{username, email, password, phoneNumber, address, role}` | `{accessToken: "jwt...", user: {id, username, email, role}}` |
-| POST | `/api/auth/login` | `{email, password}` | `{accessToken: "jwt...", user: {id, username, email, role}}` |
-| GET | `/api/auth/me` | - | `{id, username, email, role}` |
+
+| Method | Endpoint             | Request                                                   | Response                                                     |
+| ------ | -------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+| POST   | `/api/auth/register` | `{username, email, password, phoneNumber, address, role}` | `{accessToken: "jwt...", user: {id, username, email, role}}` |
+| POST   | `/api/auth/login`    | `{email, password}`                                       | `{accessToken: "jwt...", user: {id, username, email, role}}` |
+| GET    | `/api/auth/me`       | -                                                         | `{id, username, email, role}`                                |
 
 ### Courses
-| Method | Endpoint | Response |
-|--------|----------|----------|
-| GET | `/api/courses` | `[{id, courseName, description, capacity, enrolledCount}]` |
-| GET | `/api/courses/{id}` | `{id, courseName, description, capacity, enrolledCount}` |
-| POST | `/api/courses` | (Teacher only) Create course |
-| PUT | `/api/courses/{id}` | (Teacher only) Update course |
-| DELETE | `/api/courses/{id}` | (Teacher only) Delete course |
+
+| Method | Endpoint            | Response                                                   |
+| ------ | ------------------- | ---------------------------------------------------------- |
+| GET    | `/api/courses`      | `[{id, courseName, description, capacity, enrolledCount}]` |
+| GET    | `/api/courses/{id}` | `{id, courseName, description, capacity, enrolledCount}`   |
+| POST   | `/api/courses`      | (Teacher only) Create course                               |
+| PUT    | `/api/courses/{id}` | (Teacher only) Update course                               |
+| DELETE | `/api/courses/{id}` | (Teacher only) Delete course                               |
 
 ### Enrollment
-| Method | Endpoint | Header | Response |
-|--------|----------|--------|----------|
-| POST | `/api/courses/{courseId}/enroll` | `Authorization: Bearer {token}` | `{id, studentId, courseId, enrollmentDate}` |
-| DELETE | `/api/courses/{courseId}/unenroll` | `Authorization: Bearer {token}` | 204 No Content |
-| GET | `/api/my/enrollments` | `Authorization: Bearer {token}` | `[enrollments...]` |
+
+| Method | Endpoint                           | Header                          | Response                                    |
+| ------ | ---------------------------------- | ------------------------------- | ------------------------------------------- |
+| POST   | `/api/courses/{courseId}/enroll`   | `Authorization: Bearer {token}` | `{id, studentId, courseId, enrollmentDate}` |
+| DELETE | `/api/courses/{courseId}/unenroll` | `Authorization: Bearer {token}` | 204 No Content                              |
+| GET    | `/api/my/enrollments`              | `Authorization: Bearer {token}` | `[enrollments...]`                          |
 
 ---
 
 ## How to Test
 
 ### 1. **Registration Flow**
+
 ```
 1. Go to http://localhost:5174/
 2. Click "Register here"
@@ -119,6 +131,7 @@ export const authAPI = {
 ```
 
 ### 2. **Login Flow**
+
 ```
 1. Enter registered email
 2. Enter password
@@ -127,6 +140,7 @@ export const authAPI = {
 ```
 
 ### 3. **Course View**
+
 ```
 1. After login, view courses in grid
 2. Click "View Course" to see details
@@ -135,6 +149,7 @@ export const authAPI = {
 ```
 
 ### 4. **Enrollment**
+
 ```
 1. In course grid, click "Enroll"
 2. Should see "Successfully enrolled!" message
@@ -145,14 +160,14 @@ export const authAPI = {
 
 ## Error Scenarios Handled
 
-| Scenario | Error Message |
-|----------|---------------|
-| Network down | "Cannot connect to the backend. Make sure the server is running." |
-| Invalid credentials | "Invalid email or password." (401) |
-| Email exists | "Email already exists. Please use a different email." (409) |
-| Server error | "Server error. Please try again later." (500) |
-| CORS issue | "Backend access issue (CORS)." (403) |
-| Missing fields | "Username, email and password are required" |
+| Scenario            | Error Message                                                     |
+| ------------------- | ----------------------------------------------------------------- |
+| Network down        | "Cannot connect to the backend. Make sure the server is running." |
+| Invalid credentials | "Invalid email or password." (401)                                |
+| Email exists        | "Email already exists. Please use a different email." (409)       |
+| Server error        | "Server error. Please try again later." (500)                     |
+| CORS issue          | "Backend access issue (CORS)." (403)                              |
+| Missing fields      | "Username, email and password are required"                       |
 
 ---
 
