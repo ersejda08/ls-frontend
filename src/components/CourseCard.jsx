@@ -19,18 +19,18 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 h-32"></div>
+    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-purple-100">
+      <div className="bg-gradient-to-r from-yellow-200 via-pink-200 to-purple-200 h-32"></div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
+        <h3 className="text-xl font-bold text-gray-800 mb-2">
           {course.courseName}
         </h3>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">
           {course.description}
         </p>
 
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+        <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
             <span>{course.level || "Beginner"}</span>
@@ -44,13 +44,13 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
         <div className="flex gap-2">
           <button
             onClick={handleViewCourse}
-            className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium cursor-pointer"
+            className="flex-1 bg-gradient-to-r from-purple-300 to-pink-300 text-white px-4 py-2 rounded-lg hover:from-purple-400 hover:to-pink-400 transition-colors font-medium cursor-pointer shadow-md"
           >
             View Course
           </button>
           <button
             onClick={handleEnroll}
-            className="flex-1 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors font-medium cursor-pointer"
+            className="flex-1 border-2 border-purple-300 text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors font-medium cursor-pointer"
           >
             Enroll
           </button>

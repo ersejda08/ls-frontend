@@ -72,19 +72,19 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-100 flex items-center justify-center px-4">
+      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border border-amber-100">
         <div className="flex items-center justify-center mb-8">
-          <LogIn className="w-12 h-12 text-indigo-600" />
+          <LogIn className="w-12 h-12 text-orange-400" />
         </div>
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">
           Learn Smartly
         </h2>
         <p className="text-gray-600 mb-6 text-center">Login to your account</p>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+          <div className="bg-rose-50 border border-rose-200 text-rose-700 px-4 py-3 rounded-lg mb-6">
             {error}
           </div>
         )}
@@ -95,14 +95,14 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Mail className="absolute left-3 top-3 w-5 h-5 text-orange-300" />
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="you@example.com"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-amber-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300 bg-orange-50"
               />
             </div>
           </div>
@@ -112,14 +112,14 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Lock className="absolute left-3 top-3 w-5 h-5 text-orange-300" />
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-amber-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300 bg-orange-50"
               />
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-orange-300 to-rose-300 text-white py-2 rounded-lg hover:from-orange-400 hover:to-rose-400 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
@@ -137,14 +137,14 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
           <p className="text-gray-600">Don't have an account?</p>
           <button
             onClick={onRegisterClick}
-            className="text-indigo-600 hover:text-indigo-700 font-medium mt-2"
+            className="text-orange-400 hover:text-orange-500 font-medium mt-2"
           >
             Register here
           </button>
         </div>
 
-        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-sm text-blue-800">
+        <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+          <p className="text-sm text-amber-900">
             <strong>Demo credentials:</strong>
             <br />
             Email: student@example.com

@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
-import UserManagement from "./components/UserManagement";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Homepage from "./components/Homepage";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("dashboard");
+  const [currentPage, setCurrentPage] = useState("home");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [authPage, setAuthPage] = useState("login"); // "login" or "register"
@@ -17,8 +17,10 @@ function App() {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       try {
-        setUser(JSON.parse(storedUser));
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
         setIsAuthenticated(true);
+        setCurrentPage("dashboard");
       } catch (err) {
         console.error("Error parsing stored user:", err);
         localStorage.removeItem("user");
@@ -37,28 +39,39 @@ function App() {
     localStorage.removeItem("token");
     setUser(null);
     setIsAuthenticated(false);
+    setCurrentPage("home");
     setAuthPage("login");
   };
 
-  // Show login/register pages if not authenticated
+  // Show homepage with login/register buttons if not authenticated
   if (!isAuthenticated) {
-    return (
-      <div>
-        {authPage === "login" ? (
-          <Login
-            onLoginSuccess={handleLoginSuccess}
-            onRegisterClick={() => setAuthPage("register")}
+    if (currentPage === "home") {
+      return (
+        <div>
+          <Homepage 
+            onLoginClick={() => setCurrentPage("login")}
+            onRegisterClick={() => setCurrentPage("register")}
           />
-        ) : (
-          <Register
-            onSuccess={handleLoginSuccess}
-            onBackToLogin={() => setAuthPage("login")}
-          />
-        )}
-      </div>
-    );
+        </div>
+      );
+    } else if (currentPage === "login") {
+      return (
+        <Login
+          onLoginSuccess={handleLoginSuccess}
+          onRegisterClick={() => setCurrentPage("register")}
+        />
+      );
+    } else {
+      return (
+        <Register
+          onSuccess={handleLoginSuccess}
+          onBackToLogin={() => setCurrentPage("login")}
+        />
+      );
+    }
   }
 
+  // After authentication, show dashboard or management based on role
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation 
@@ -69,7 +82,6 @@ function App() {
       />
       <main>
         {currentPage === "dashboard" && <Dashboard />}
-        {currentPage === "users" && <UserManagement />}
       </main>
     </div>
   );

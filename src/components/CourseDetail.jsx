@@ -26,33 +26,33 @@ export default function CourseDetail({ courseId }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-purple-100">
       <div className="p-6">
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-300"></div>
           </div>
         ) : error ? (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          <div className="bg-rose-50 border border-rose-200 text-rose-700 px-4 py-3 rounded-lg">
             {error}
           </div>
         ) : course ? (
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <BookOpen className="w-8 h-8 text-indigo-600" />
+              <BookOpen className="w-8 h-8 text-purple-400" />
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">
+                <h1 className="text-3xl font-bold text-gray-800">
                   {course.courseName}
                 </h1>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-indigo-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 text-indigo-900">
+              <div className="bg-gradient-to-br from-purple-100 to-pink-100 p-4 rounded-lg">
+                <div className="flex items-center gap-2 text-purple-900">
                   <Users className="w-5 h-5" />
                   <div>
-                    <p className="text-sm text-indigo-700">Enrolled</p>
+                    <p className="text-sm text-purple-700">Enrolled</p>
                     <p className="text-2xl font-bold">
                       {course.enrolledCount ?? 0}
                     </p>
@@ -60,25 +60,25 @@ export default function CourseDetail({ courseId }) {
                 </div>
               </div>
 
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <div className="text-purple-900">
-                  <p className="text-sm text-purple-700">Capacity</p>
+              <div className="bg-gradient-to-br from-yellow-100 to-orange-100 p-4 rounded-lg">
+                <div className="text-orange-900">
+                  <p className="text-sm text-orange-700">Capacity</p>
                   <p className="text-2xl font-bold">
                     {course.capacity ?? "Unlimited"}
                   </p>
                 </div>
               </div>
 
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-blue-900">
-                  <p className="text-sm text-blue-700">Status</p>
+              <div className="bg-gradient-to-br from-emerald-100 to-teal-100 p-4 rounded-lg">
+                <div className="text-teal-900">
+                  <p className="text-sm text-teal-700">Status</p>
                   <p className="text-2xl font-bold">Active</p>
                 </div>
               </div>
             </div>
 
             <div className="prose max-w-none mb-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-gray-800 mb-3">
                 About this Course
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -86,8 +86,8 @@ export default function CourseDetail({ courseId }) {
               </p>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <p className="text-sm text-gray-600">
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-200">
+              <p className="text-sm text-gray-700">
                 <strong>Note:</strong> Course materials and lessons are managed
                 by your instructor.
               </p>

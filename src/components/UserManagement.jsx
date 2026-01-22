@@ -69,12 +69,12 @@ export default function UserManagement() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <Users className="w-8 h-8 text-indigo-600" />
+              <Users className="w-8 h-8 text-purple-400" />
               <h1 className="text-3xl font-bold text-gray-900">
                 User Management
               </h1>
@@ -85,7 +85,7 @@ export default function UserManagement() {
                 setEditingId(null);
                 setFormData({ name: "", email: "", role: "student" });
               }}
-              className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+              className="flex items-center gap-2 bg-gradient-to-r from-purple-300 to-pink-300 text-white px-4 py-2 rounded-lg hover:from-purple-400 hover:to-pink-400 transition-colors font-medium"
             >
               <Plus className="w-4 h-4" />
               Add User
@@ -100,7 +100,7 @@ export default function UserManagement() {
         )}
 
         {showForm && (
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <div className="bg-white border border-purple-100 rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
               {editingId ? "Edit User" : "Add New User"}
             </h2>
@@ -116,7 +116,7 @@ export default function UserManagement() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-purple-200 rounded-lg bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-300"
                 />
               </div>
               <div>
@@ -130,7 +130,7 @@ export default function UserManagement() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-purple-200 rounded-lg bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-300"
                 />
               </div>
               <div>
@@ -142,7 +142,7 @@ export default function UserManagement() {
                   onChange={(e) =>
                     setFormData({ ...formData, role: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-purple-200 rounded-lg bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-300"
                 >
                   <option value="student">Student</option>
                   <option value="instructor">Instructor</option>
@@ -152,7 +152,7 @@ export default function UserManagement() {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                  className="flex-1 bg-gradient-to-r from-purple-300 to-pink-300 text-white px-4 py-2 rounded-lg hover:from-purple-400 hover:to-pink-400 transition-colors font-medium"
                 >
                   {editingId ? "Update" : "Create"} User
                 </button>
@@ -162,7 +162,7 @@ export default function UserManagement() {
                     setShowForm(false);
                     setEditingId(null);
                   }}
-                  className="flex-1 border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="flex-1 border border-purple-200 text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors font-medium"
                 >
                   Cancel
                 </button>
@@ -173,12 +173,12 @@ export default function UserManagement() {
 
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-300"></div>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white border border-purple-100 rounded-lg shadow-md overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-100 border-b border-gray-200">
+              <thead className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
                 <tr>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">
                     Name
@@ -194,11 +194,11 @@ export default function UserManagement() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-purple-100">
                 {users.map((user) => (
                   <tr
                     key={user.id}
-                    className="hover:bg-gray-50 transition-colors"
+                    className="hover:bg-purple-50 transition-colors"
                   >
                     <td className="px-6 py-3 text-sm text-gray-900">
                       {user.name}
@@ -210,10 +210,10 @@ export default function UserManagement() {
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${
                           user.role === "admin"
-                            ? "bg-red-100 text-red-800"
+                            ? "bg-rose-100 text-rose-700"
                             : user.role === "instructor"
-                              ? "bg-blue-100 text-blue-800"
-                              : "bg-green-100 text-green-800"
+                              ? "bg-purple-100 text-purple-700"
+                              : "bg-emerald-100 text-emerald-700"
                         }`}
                       >
                         {user.role}
@@ -223,13 +223,13 @@ export default function UserManagement() {
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleEdit(user)}
-                          className="text-indigo-600 hover:text-indigo-900 transition-colors"
+                          className="text-purple-600 hover:text-purple-900 transition-colors"
                         >
                           <Edit2 className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDelete(user.id)}
-                          className="text-red-600 hover:text-red-900 transition-colors"
+                          className="text-rose-600 hover:text-rose-900 transition-colors"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

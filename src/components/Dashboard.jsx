@@ -58,11 +58,11 @@ export default function Dashboard() {
 
   if (selectedCourse) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="min-h-screen bg-gradient-to-br from-lavender-50 via-lilac-50 to-purple-100">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <button
             onClick={() => setSelectedCourse(null)}
-            className="flex items-center gap-2 mb-6 text-indigo-600 hover:text-indigo-700 font-medium"
+            className="flex items-center gap-2 mb-6 text-purple-500 hover:text-purple-600 font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Courses
@@ -74,12 +74,12 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-lavender-50 via-lilac-50 to-purple-100">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-8 h-8 text-indigo-600" />
-            <h1 className="text-4xl font-bold text-gray-900">
+            <BookOpen className="w-8 h-8 text-purple-400" />
+            <h1 className="text-4xl font-bold text-gray-800">
               Learning Platform
             </h1>
           </div>
@@ -89,14 +89,14 @@ export default function Dashboard() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+          <div className="bg-rose-50 border border-rose-200 text-rose-700 px-4 py-3 rounded-lg mb-6">
             {error}
           </div>
         )}
 
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-300"></div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -125,27 +125,27 @@ export default function Register({ onSuccess, onBackToLogin }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100 flex items-center justify-center px-4">
+      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border border-teal-100">
         <button
           onClick={onBackToLogin}
-          className="flex items-center gap-2 text-indigo-600 hover:text-indigo-700 mb-6"
+          className="flex items-center gap-2 text-teal-600 hover:text-teal-700 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Login
         </button>
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Register</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">Register</h2>
         <p className="text-gray-600 mb-6">Create your Learn Smartly account</p>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+          <div className="bg-rose-50 border border-rose-200 text-rose-700 px-4 py-3 rounded-lg mb-6">
             {error}
           </div>
         )}
 
         {success && (
-          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+          <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-lg mb-6">
             Registration successful! Redirecting to login...
           </div>
         )}
@@ -156,14 +156,14 @@ export default function Register({ onSuccess, onBackToLogin }) {
               Username
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <User className="absolute left-3 top-3 w-5 h-5 text-teal-300" />
               <input
                 type="text"
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
                 placeholder="john_doe"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300 bg-teal-50"
               />
             </div>
           </div>
@@ -173,14 +173,14 @@ export default function Register({ onSuccess, onBackToLogin }) {
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Mail className="absolute left-3 top-3 w-5 h-5 text-teal-300" />
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="john@example.com"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300 bg-teal-50"
               />
             </div>
           </div>
@@ -190,14 +190,14 @@ export default function Register({ onSuccess, onBackToLogin }) {
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Lock className="absolute left-3 top-3 w-5 h-5 text-teal-300" />
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300 bg-teal-50"
               />
             </div>
           </div>
@@ -207,14 +207,14 @@ export default function Register({ onSuccess, onBackToLogin }) {
               Confirm Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Lock className="absolute left-3 top-3 w-5 h-5 text-teal-300" />
               <input
                 type="password"
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300 bg-teal-50"
               />
             </div>
           </div>
@@ -224,14 +224,14 @@ export default function Register({ onSuccess, onBackToLogin }) {
               Phone Number (Optional)
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <Phone className="absolute left-3 top-3 w-5 h-5 text-teal-300" />
               <input
                 type="tel"
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 placeholder="+1 (555) 000-0000"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300 bg-teal-50"
               />
             </div>
           </div>
@@ -241,14 +241,14 @@ export default function Register({ onSuccess, onBackToLogin }) {
               Address (Optional)
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <MapPin className="absolute left-3 top-3 w-5 h-5 text-teal-300" />
               <input
                 type="text"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="123 Main St, City, State"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300 bg-teal-50"
               />
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function Register({ onSuccess, onBackToLogin }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-teal-300 to-emerald-300 text-white py-2 rounded-lg hover:from-teal-400 hover:to-emerald-400 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
           >
             {loading ? "Registering..." : "Register"}
           </button>
