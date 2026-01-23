@@ -107,6 +107,7 @@ export const quizAnswerAPI = {
 };
 
 // Enrollment API
+// Enrollment API
 export const enrollmentAPI = {
   enroll: (courseId) => apiClient.post(`/courses/${courseId}/enroll`),
   unenroll: (courseId) => apiClient.delete(`/courses/${courseId}/unenroll`),
