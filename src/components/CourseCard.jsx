@@ -20,7 +20,7 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
 
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-purple-100">
-      <div className="bg-gradient-to-r from-yellow-200 via-pink-200 to-purple-200 h-32"></div>
+      <div className="bg-gradient-to-r from-orange-100 via-orange-200 to-purple-200 h-32"></div>
 
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-2">
@@ -32,12 +32,12 @@ export default function CourseCard({ course, onViewCourse, onEnroll }) {
 
         <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
           <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4" />
-            <span>{course.level || "Beginner"}</span>
+            <Users className="w-4 h-4" />
+            <span>{course.enrolledCount ?? 0} enrolled</span>
           </div>
           <div className="flex items-center gap-1">
-            <Users className="w-4 h-4" />
-            <span>{course.enrolledCount ?? 0} students</span>
+            <Clock className="w-4 h-4" />
+            <span>Capacity: {course.capacity}</span>
           </div>
         </div>
 

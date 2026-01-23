@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { authAPI } from "../services/api";
-import { Mail, Lock, LogIn } from "lucide-react";
+import { Mail, Lock, LogIn, ArrowLeft } from "lucide-react";
 
-export default function Login({ onLoginSuccess, onRegisterClick }) {
+export default function Login({
+  onLoginSuccess,
+  onRegisterClick,
+  onBackToHome,
+}) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -74,6 +78,14 @@ export default function Login({ onLoginSuccess, onRegisterClick }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-100 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border border-amber-100">
+        <button
+          onClick={onBackToHome}
+          className="flex items-center gap-2 text-orange-600 hover:text-orange-700 mb-6"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Homepage
+        </button>
+
         <div className="flex items-center justify-center mb-8">
           <LogIn className="w-12 h-12 text-orange-400" />
         </div>
